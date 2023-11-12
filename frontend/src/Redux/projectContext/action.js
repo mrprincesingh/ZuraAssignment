@@ -6,7 +6,7 @@ import axios from "axios";
 export const getProject = () => (dispatch) => {
     dispatch({type: types.GET_PROJECT_REQUEST});
     return axios
-    .get(`http://localhost:4000/api/v1/project`)
+    .get(`https://zuraassignment.onrender.com/api/v1/project`)
     .then((res) => {
         dispatch({type: types.GET_PROJECT_SUCCESS, payload: res.data});
    
@@ -21,7 +21,7 @@ export const postProject = (payload) => (dispatch) => {
     dispatch({ type: types.POST_PROJECT_REQUEST });
     
     return axios
-        .post(`http://localhost:4000/api/v1/createproject`, payload)
+        .post(`https://zuraassignment.onrender.com/api/v1/createproject`, payload)
         .then((res) => {
             // Check the structure of the response from the server
             const responseData = res.data;

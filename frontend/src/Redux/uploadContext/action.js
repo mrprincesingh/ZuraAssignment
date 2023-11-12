@@ -4,7 +4,7 @@ import axios from "axios";
 export const getMedia = (id) => (dispatch) => {
     dispatch({type: types.GET_MEDIA_REQUEST});
     return axios
-    .get(`http://localhost:4000/api/v1/media?projectId=${id}`)
+    .get(`https://zuraassignment.onrender.com/api/v1/media?projectId=${id}`)
     .then((res) => {
         dispatch({type: types.GET_MEDIA_SUCCESS, payload: res.data});
    
@@ -19,7 +19,7 @@ export const postMedia = ({name , description , projectId}) => (dispatch) => {
     dispatch({ type: types.POST_MEDIA_REQUEST });
     
     return axios
-        .post(`http://localhost:4000/api/v1/uploadMedia`, {name , description,projectId})
+        .post(`https://zuraassignment.onrender.com/api/v1/uploadMedia`, {name , description,projectId})
         .then((res) => {
             // Check the structure of the response from the server
         
@@ -36,7 +36,7 @@ export const deleteMedia = ({ mediaId, projectId }) => (dispatch) => {
     dispatch({ type: types.DELETE_MEDIA_REQUEST });
   
     return axios
-      .delete("http://localhost:4000/api/v1/deletemedia", { data: { projectId, mediaId } })
+      .delete("https://zuraassignment.onrender.com/api/v1/deletemedia", { data: { projectId, mediaId } })
       .then((res) => {
         // Check the structure of the response from the server
         dispatch({ type: types.DELETE_MEDIA_SUCCESS, payload: res.data });
@@ -51,7 +51,7 @@ export const deleteMedia = ({ mediaId, projectId }) => (dispatch) => {
     console.log(itemId, description);
     dispatch({type:types.EDIT_MEDIA_REQUEST});
     return axios
-    .put(`http://localhost:4000/api/v1/editmedia`, {itemId , description})
+    .put(`https://zuraassignment.onrender.com/api/v1/editmedia`, {itemId , description})
     .then((r) => {
         dispatch({type: types.EDIT_MEDIA_SUCCESS, payload: r.data});
     })
