@@ -6,6 +6,7 @@ const schema = new mongoose.Schema({
         type:String,
         required: [true, "Please enter a  Project Name"]
     },
+    medias: [{ type: mongoose.Schema.Types.ObjectId, ref: "Media" }],
     createdAt:{
         type:Date , 
         default:Date.now(),
